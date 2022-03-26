@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ user }) {
   return (
     <div className="header-div">
       <div className="header-navlink-div">
@@ -18,7 +18,7 @@ export default function Header() {
           Resume
         </NavLink>
         <NavLink to="/user/" className="header-navlink">
-          Login
+          {user.loggedIn ? user.username : "Login"}
         </NavLink>
       </div>
     </div>

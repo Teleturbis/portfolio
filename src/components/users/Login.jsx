@@ -19,12 +19,21 @@ const customStyles = {
   },
 };
 
-export default function Login() {
+export default function Login({ userLoggedIn }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [newUserPW, setNewUserPW] = useState("");
   const [newUserName, setNewUserName] = useState("");
 
+  const [userNameInput, setUserNameInput] = useState("");
+  const [userPWInput, setUserPWInput] = useState("");
+
   const [newUser, setNewUser] = useState({
+    id: "",
+    userName: "",
+    password: "",
+  });
+
+  const [user, setUser] = useState({
     id: "",
     userName: "",
     password: "",
@@ -38,6 +47,23 @@ export default function Login() {
     setIsOpen(false);
   }
 
+  function handleLogin() {
+    if (userNameInput !== "" && userPWInput !== "") {
+      axios
+        .get(
+          `https://my-backend-portfolio.herokuapp.com/login?user=${userNameInput}&pw=${userPWInput}`
+        )
+        .then((res) =>
+          res
+            ? userLoggedIn({
+                username: res.data.username,
+                userid: res.data.userid,
+              })
+            : window.alert("Username oder Passwort falsch!")
+        );
+    }
+  }
+
   function handleRegistration(e) {
     if (newUserName !== "" && newUserPW !== "") {
       setNewUser({ id: uuid(), userName: newUserName, password: newUserPW });
@@ -45,11 +71,9 @@ export default function Login() {
   }
 
   useEffect(() => {
-    console.log(newUser);
-
     if (newUser.userName !== "") {
       axios
-        .post("http://localhost:3300/newUsers", {
+        .post("https://my-backend-portfolio.herokuapp.com/newUser", {
           id: newUser.id,
           userName: newUser.userName,
           password: newUser.password,
@@ -62,9 +86,26 @@ export default function Login() {
   return (
     <div className="login-div">
       <h1>LogIn</h1>
-      <input className="login-element" type="text" placeholder="Username" />
-      <input className="login-element" type="password" placeholder="Passwort" />
-      <button className="login-element login-button">Anmelden</button>
+      <input
+        className="login-element"
+        type="text"
+        placeholder="Username"
+        value={userNameInput}
+        onChange={(e) => setUserNameInput(e.target.value)}
+      />
+      <input
+        className="login-element"
+        type="password"
+        placeholder="Passwort"
+        value={userPWInput}
+        onChange={(e) => setUserPWInput(e.target.value)}
+      />
+      <button
+        className="login-element login-button"
+        onClick={() => handleLogin()}
+      >
+        Anmelden
+      </button>
       <button className="login-element login-button" onClick={openModal}>
         Registrieren
       </button>
