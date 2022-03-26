@@ -17,6 +17,9 @@ export default function Header() {
         <NavLink to="/resume" className="header-navlink">
           Resume
         </NavLink>
+        <NavLink to="/user/" className="header-navlink">
+          Login
+        </NavLink>
       </div>
     </div>
   );

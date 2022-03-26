@@ -8,7 +8,7 @@ export default function AboutMe() {
       <h1>Hey There!</h1>
       <div className="aboutMe-location-div">
         <p className="aboutMe-left">
-          Mein Name ist Kevin Poppe, 28 Jahre alt. Momentan befinde ich mich bis
+          Mein Name ist Kevin Poppe. Momentan befinde ich mich bis
           zum 13.05.2022 in dem Bootcamp zum Fullstack Web- & App-Developer der{" "}
           <a
             href="https://www.wbscodingschool.com/de/web-app-entwicklung-bootcamp/"
@@ -44,8 +44,8 @@ export default function AboutMe() {
       <p className="aboutMe-right">
         Von 2011 bis 2014 habe ich eine Ausbildung zum examinierten Altenpfleger
         absolviert und daraufhin 7 Jahre als Altenpfleger gearbeitet, 6 Jahre
-        davon bei der Sozialstation Walldürn, ein ambulater Dienst. Hier habe
-        ich das verantwortungsvolle arbeiten unter hohem Zeitdruck gelernt,
+        davon bei der Sozialstation Walldürn, ein ambulanter Dienst. Hier habe
+        ich das verantwortungsvolle Arbeiten unter hohem Zeitdruck gelernt,
         sowie eine gute Organisation und Planung der täglichen Aufgaben.
       </p>
       <p className="aboutMe-left">
@@ -53,14 +53,14 @@ export default function AboutMe() {
         Konrad-von-Dürn Realschule Walldürn - für mich entdeckt. Ich habe damals
         mit C++ kleine Programme geschrieben, wie bspw. einen Taschenrechner,
         welcher mir das berechnen physikalischer Formeln erleichtern sollte.
-        Leider ging diese Hobby während meiner Ausbildung verloren. <br />
+        Leider ging dieses Hobby während meiner Ausbildung verloren. <br />
         2020 habe ich festgestellt, dass die CSM-Software in der Altenpflege
         sehr veraltet ist. Ich habe so meine Passion für das Programmieren
         wieder gefunden und angefangen, Java zu lernen. Ende 2021 habe ich
         festgestellt, dass die Pflege keine Zukunft mehr für mich hat und ich
-        mich Beruflich verändern möchte.
+        mich beruflich verändern möchte.
       </p>
-      <h2>Ich bin offen für eine Stelle als Fullstack Web-Developer.</h2>
+      <h2 className="aboutme-end">Ich bin offen für eine Stelle als Fullstack Web-Developer.</h2>
     </div>
   );
 }

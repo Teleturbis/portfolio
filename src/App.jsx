@@ -6,6 +6,8 @@ import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import Resume from "./components/Resume";
 
+import Login from "./components/users/Login";
+
 import ProjectOverview from "./components/projects/ProjectOverview";
 
 function App() {
@@ -18,6 +20,9 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/projects">
           <Route index element={<ProjectOverview />} />
+        </Route>
+        <Route path="/user">
+          <Route index element={<Login />} />
         </Route>
       </Routes>
     </div>
