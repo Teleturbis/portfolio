@@ -53,20 +53,26 @@ export default function Login({ userLoggedIn }) {
         .get(
           `https://my-backend-portfolio.herokuapp.com/login?user=${userNameInput}&pw=${userPWInput}`
         )
-        .then((res) =>
-          res
-            ? userLoggedIn({
-                username: res.data.username,
-                userid: res.data.userid,
-              })
-            : window.alert("Username oder Passwort falsch!")
-        );
+        .then((res) => {
+          console.log(res);
+          if (res.data !== "No User found") {
+            userLoggedIn({
+              username: res.data.username,
+              userid: res.data.userid,
+            });
+          } else {
+            window.alert("Username oder Passwort falsch!");
+          }
+        });
     }
   }
 
   function handleRegistration(e) {
     if (newUserName !== "" && newUserPW !== "") {
       setNewUser({ id: uuid(), userName: newUserName, password: newUserPW });
+      closeModal();
+      setNewUserName("");
+      setNewUserPW("");
     }
   }
 
@@ -120,14 +126,14 @@ export default function Login({ userLoggedIn }) {
         <input
           className="login-element"
           type="text"
-          placeholder="Username a"
+          placeholder="Username"
           onChange={(e) => setNewUserName(e.target.value)}
           value={newUserName}
         />
         <input
           className="login-element"
           type="password"
-          placeholder="Passwort a"
+          placeholder="Passwort"
           onChange={(e) => setNewUserPW(e.target.value)}
           value={newUserPW}
         />
@@ -135,7 +141,7 @@ export default function Login({ userLoggedIn }) {
           className="login-element login-button"
           onClick={() => handleRegistration()}
         >
-          Anmelden
+          Registrieren
         </button>
       </Modal>
     </div>
