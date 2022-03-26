@@ -171,3 +171,58 @@ body {
 /**********************************/
 /*    ***     RESUME      ***     */
 /**********************************/
+
+.resume-div {
+  width: 40%;
+  margin: 3rem auto;
+}
+
+.resume-div > h2 {
+  margin-top: 3rem;
+  font-size: 3rem;
+  text-shadow: 3px 3px 0 var(--secondary);
+}
+
+.resume-div > h1 {
+  text-align: center;
+  font-size: 5rem;
+  text-shadow: 3px 3px 0 var(--secondary);
+  margin-bottom: 2rem;
+}
+
+.resume-div > p {
+  margin: 0.5rem 0;
+  letter-spacing: 0.05rem;
+}
+
+.resume-div > p > a {
+  color: var(--text);
+  transition: 100ms;
+}
+
+.resume-div > p > a:hover {
+  color: var(--textShadow);
+}
+
+.resume-skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  margin: auto;
+}
+
+.resume-skills > h3 {
+  text-transform: uppercase;
+  margin: 0 0.5rem;
+}
+
+.resume-skills > p {
+  margin: 0 0.5rem;
+}
+
+.resume-end {
+  margin-top: 10rem !important;
+  font-size: 3rem;
+}
