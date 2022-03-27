@@ -54,7 +54,6 @@ export default function Login({ userLoggedIn }) {
           `https://my-backend-portfolio.herokuapp.com/login?user=${userNameInput}&pw=${userPWInput}`
         )
         .then((res) => {
-          console.log(res);
           if (res.data !== "No User found") {
             userLoggedIn({
               username: res.data.username,
