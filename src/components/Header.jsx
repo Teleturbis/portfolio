@@ -17,9 +17,9 @@ export default function Header({ user }) {
         <NavLink to="/resume" className="header-navlink">
           Resume
         </NavLink>
-        <NavLink to="/user/" className="header-navlink">
+        {/* <NavLink to="/user/" className="header-navlink">
           {user.loggedIn ? user.username : "Login"}
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );
