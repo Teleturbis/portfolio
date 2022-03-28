@@ -38,28 +38,20 @@ export default function User({ userLoggedIn, user }) {
     console.log(tempArr);
 
     axios
-      .put(
-        `https://my-backend-portfolio.herokuapp.com/newChat`,
+      .put("https://localhost:3500/newChat", [
         {
-          Header: {
-            AccessControlAllowOrigin: "*",
-          },
+          chatid: prevChat.chatid,
+          useridone: prevChat.useridone,
+          useridtwo: prevChat.useridtwo,
+          prevchat: tempArr.push({
+            from: user.userId,
+            message: newMessage,
+            time: `${date.getHours()}:${date.getMinutes()}`,
+          }),
         },
-        [
-          {
-            chatid: prevChat.chatid,
-            useridone: prevChat.useridone,
-            useridtwo: prevChat.useridtwo,
-            prevchat: tempArr.push({
-              from: user.userId,
-              message: newMessage,
-              time: `${date.getHours()}:${date.getMinutes()}`,
-            }),
-          },
-        ]
-      )
+      ])
       .then((res) => console.log("res:", res))
-      .catch((err) => console.error("ERROR at Frontend", err.response));
+      .catch((err) => console.error("ERROR at Frontend", err));
 
     console.log({
       chatid: prevChat.chatid,

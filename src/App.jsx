@@ -63,7 +63,7 @@ function App() {
             element={<ProjectDetails projects={projects} />}
           ></Route>
         </Route>
-        <Route
+        {/* <Route
           path="/user"
           element={
             user.loggedIn ? (
@@ -72,7 +72,7 @@ function App() {
               <Login userLoggedIn={userLoggedIn} />
             )
           }
-        ></Route>
+        ></Route> */}
       </Routes>
     </div>
   );
