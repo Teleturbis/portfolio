@@ -11,6 +11,7 @@ import Login from "./components/users/Login";
 import User from "./components/users/User";
 
 import ProjectOverview from "./components/projects/ProjectOverview";
+import ProjectDetails from "./components/projects/ProjectDetails";
 
 function App() {
   const [user, setUser] = useState({
@@ -18,6 +19,7 @@ function App() {
     userId: "",
     loggedIn: false,
   });
+  const [projects, setProjects] = useState(false);
 
   function userLoggedIn(value) {
     user.loggedIn
@@ -33,7 +35,11 @@ function App() {
         });
   }
 
-  console.log(user);
+  function changeProjects(value) {
+    setProjects(value);
+  }
+
+  console.log("abc", projects);
 
   return (
     <div>
@@ -43,7 +49,19 @@ function App() {
         <Route path="/aboutme" element={<AboutMe />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/projects">
-          <Route index element={<ProjectOverview />} />
+          <Route
+            index
+            element={
+              <ProjectOverview
+                projects={projects}
+                changeProjects={changeProjects}
+              />
+            }
+          />
+          <Route
+            path="/projects/:id"
+            element={<ProjectDetails projects={projects} />}
+          ></Route>
         </Route>
         <Route
           path="/user"

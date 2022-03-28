@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap");
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 :root {
   --primary: #222629;
@@ -225,6 +226,121 @@ body {
 /*    ***    PROJECTS     ***     */
 /**********************************/
 
+.projects-div {
+  width: 90%;
+  margin: 0 auto;
+  padding: 5rem;
+}
+
+.project-navlink {
+  display: inline-block;
+  background-size: cover;
+  background-position: top;
+  min-width: 20rem;
+  min-height: 30rem;
+}
+
+.hotCard {
+  height: 450px;
+  width: 300px;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: 450ms ease-out;
+  -webkit-box-shadow: 5px 5px 3px #000000;
+  box-shadow: 5px 5px 3px var(--secondary);
+}
+
+.hotCard:hover {
+  transform: scale(1.05);
+  -webkit-box-shadow: 10px 10px 5px var(--secondary);
+  box-shadow: 10px 10px 5px var(--secondary);
+}
+
+.hotCard:hover .card-content {
+  transform: translateY(-170px);
+  opacity: 1;
+}
+
+.card-content {
+  font-size: 2.5rem;
+  position: relative;
+  text-align: center;
+  top: 440px;
+  padding: 30px;
+  background-color: #97aabd;
+  opacity: 0.3;
+  color: white;
+  transition: 1000ms;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.film-details-div {
+  padding: 3rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.project-details-img-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-details-img-div > div > h1 {
+  width: 60%;
+  margin-left: auto;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.project-details-img-div > div > h1 > a {
+  color: var(--text);
+  transition: 150ms;
+}
+
+.project-details-img-div > div > h1 > a:hover {
+  color: var(--textShadow);
+}
+
+.project-details-img {
+  width: 20%;
+}
+
+.project-details-description {
+  margin: 2rem 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.project-details-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 70%;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: var(--text);
+  border: 1px solid var(--text);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background-color: var(--secondary);
+  height: fit-content;
+}
+
+.tag-hover:hover {
+  color: var(--textShadow);
+  border-color: var(--textShadow);
+  background-color: var(--primary);
+}
+
 /**********************************/
 /*    ***      USER       ***     */
 /**********************************/
@@ -269,11 +385,11 @@ body {
   background-color: var(--tertiary);
 }
 
-.ReactModal__Overlay{
+.ReactModal__Overlay {
   background-color: #222629cb !important;
 }
 
-.ReactModal__Content{
+.ReactModal__Content {
   border-radius: 1rem !important;
   border: 1px solid var(--textShadow) !important;
 }
@@ -352,13 +468,21 @@ body {
   .resume-skills {
     width: 85%;
   }
+
+  .project-navlink {
+    width: 10rem;
+    height: 15rem;
+  }
 }
 
 @media only screen and (max-width: 430px) {
   /*    SMARTPHONES    */
 
   .header-navlink-div {
-    width: 100%;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .hero-div {
@@ -425,5 +549,9 @@ body {
 
   .resume-skills {
     width: 85%;
+  }
+
+  .login-div {
+    width: 90%;
   }
 }

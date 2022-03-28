@@ -38,7 +38,7 @@ export default function User({ userLoggedIn, user }) {
     console.log(tempArr);
 
     axios
-      .post(
+      .put(
         `https://my-backend-portfolio.herokuapp.com/newChat`,
         {
           Header: {
