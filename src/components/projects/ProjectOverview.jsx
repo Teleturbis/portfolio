@@ -26,9 +26,10 @@ export default function ProjectOverview({ changeProjects, projects }) {
     <div className="projects-div">
       {projects &&
         projects.map((project) => (
-          <NavLink
+          <a
             key={project.sys.id}
-            to={`/projects/${project.sys.id}`}
+            href={`${project.fields.pageLink}`}
+            target="_blank"
             style={{
               backgroundImage: `url(${project.fields.images[0].fields.file.url})`,
             }}
@@ -37,7 +38,7 @@ export default function ProjectOverview({ changeProjects, projects }) {
             <div className="card-content">
               <p className="hotTitle">{project.fields.title}</p>
             </div>
-          </NavLink>
+          </a>
         ))}
     </div>
   );
