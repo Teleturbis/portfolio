@@ -37,29 +37,47 @@ export default function User({ userLoggedIn, user }) {
 
     console.log(tempArr);
 
-    axios
-      .put(
-        `https://my-backend-portfolio.herokuapp.com/newChat`,
-        {
-          Header: {
-            AccessControlAllowOrigin: "*",
-          },
-        },
-        [
-          {
-            chatid: prevChat.chatid,
-            useridone: prevChat.useridone,
-            useridtwo: prevChat.useridtwo,
-            prevchat: tempArr.push({
-              from: user.userId,
-              message: newMessage,
-              time: `${date.getHours()}:${date.getMinutes()}`,
-            }),
-          },
-        ]
-      )
-      .then((res) => console.log("res:", res))
-      .catch((err) => console.error("ERROR at Frontend", err.response));
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        "Access-Control-Allow-Orign": "*",
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        chatid: prevChat.chatid,
+        useridone: prevChat.useridone,
+        useridtwo: prevChat.useridtwo,
+        prevchat: tempArr.push({
+          from: user.userId,
+          message: newMessage,
+          time: `${date.getHours()}:${date.getMinutes()}`,
+        }),
+      }),
+    };
+
+    fetch("http://my-backend-portfolio.herokuapp.com/newChat", requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log("fetch: ", data));
+
+    // axios
+    //   .put(//https://my-backend-portfolio.herokuapp.com/newChat
+    //     /* `https://localhost:3500/newChat` */"https://my-backend-portfolio.herokuapp.com/newChat",
+
+    //       {
+    //         chatid: prevChat.chatid,
+    //         useridone: prevChat.useridone,
+    //         useridtwo: prevChat.useridtwo,
+    //         prevchat: tempArr.push({
+    //           from: user.userId,
+    //           message: newMessage,
+    //           time: `${date.getHours()}:${date.getMinutes()}`,
+    //         }),
+    //       }
+
+    //   )
+    //   .then((res) => console.log("res:", res))
+    //   .catch((err) => console.error("ERROR at Frontend", err.response));
 
     console.log({
       chatid: prevChat.chatid,
@@ -68,6 +86,18 @@ export default function User({ userLoggedIn, user }) {
       prevchat: tempArr,
     });
   }
+
+  /*
+// Simple PUT request with a JSON body using fetch
+const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+};
+fetch('https://reqres.in/api/articles/1', requestOptions)
+    .then(response => response.json())
+    .then(data => element.innerHTML = data.updatedAt );
+*/
 
   console.log(prevChat);
 
