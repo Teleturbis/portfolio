@@ -1,21 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const contentful = require("contentful");
 
 export default function ProjectOverview({ changeProjects, projects }) {
   useEffect(async () => {
-    /* await axios
-      .get("https://localhost:3500/projects")
-      .then((res) => console.log(res.data)); */
-
+    //Create Connection to Contentful
     const client = contentful.createClient({
       space: "hxhr2jn34dq3",
       environment: "master",
       accessToken: "_wWH78wFKJ8Ayxbq3IJG2JXA4bjjCvDn5H7WZohptvc",
     });
 
+    //Get all Entries (There are only Projects, no filter needed)
     client
       .getEntries()
       .then((response) => changeProjects(response.items))
@@ -24,6 +21,7 @@ export default function ProjectOverview({ changeProjects, projects }) {
 
   return (
     <div className="projects-div">
+      {/* If Projects are loaded, map over them */}
       {projects &&
         projects.map((project) => (
           <NavLink

@@ -8,8 +8,8 @@ export default function AboutMe() {
       <h1>Hey There!</h1>
       <div className="aboutMe-location-div">
         <p className="aboutMe-left">
-          Mein Name ist Kevin Poppe. Momentan befinde ich mich bis
-          zum 13.05.2022 in dem Bootcamp zum Fullstack Web- & App-Developer der{" "}
+          Mein Name ist Kevin Poppe. Momentan befinde ich mich bis zum
+          13.05.2022 in dem Bootcamp zum Fullstack Web- & App-Developer der{" "}
           <a
             href="https://www.wbscodingschool.com/de/web-app-entwicklung-bootcamp/"
             target="_blank"
@@ -31,7 +31,7 @@ export default function AboutMe() {
         >
           <Map
             provider={stamenToner}
-            dprs={[1, 2]} // this provider supports HiDPI tiles
+            dprs={[1, 2]}
             height={300}
             width={300}
             defaultCenter={[49.7731859, 9.3282289]}
@@ -60,7 +60,9 @@ export default function AboutMe() {
         festgestellt, dass die Pflege keine Zukunft mehr für mich hat und ich
         mich beruflich verändern möchte.
       </p>
-      <h2 className="aboutme-end">Ich bin offen für eine Stelle als Fullstack Web-Developer.</h2>
+      <h2 className="aboutme-end">
+        Ich bin offen für eine Stelle als Fullstack Web-Developer.
+      </h2>
     </div>
   );
 }

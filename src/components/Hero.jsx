@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import pixel from "../assets/img/128.png";
 import detailed from "../assets/img/Portrait.png";
 
-var id = null;
-
 export default function Hero() {
   const [currentImg, setCurrentImg] = useState(detailed);
 
   function handleChangeImg() {
+    //OnClick change the Portrait to a PixelVersion
     currentImg === pixel ? setCurrentImg(detailed) : setCurrentImg(pixel);
   }
 
